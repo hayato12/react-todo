@@ -47,7 +47,12 @@ export const App = () => {
         todoText={todoText}
         onChange={onChaneTodoText}
         onClick={onClickAdd}
+        disabled={incompleteTodos.length >= 5}
       />
+      {incompleteTodos.length >= 5 && (
+        <p style={{ color: "red" }}>お前の頭じゃマルチタスクは３つが限界〜</p>
+      )}
+
       <InCompleteTodo
         incompleteTodos={incompleteTodos}
         onClickComplete={onClickComplete}
