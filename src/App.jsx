@@ -18,6 +18,8 @@ export const App = () => {
     setTodoText("");
   };
 
+  const incompleteTodosTooMany = incompleteTodos.length >= 5;
+
   const onClickDelete = (index) => {
     const newTodos = [...incompleteTodos];
     newTodos.splice(index, 1);
@@ -47,9 +49,9 @@ export const App = () => {
         todoText={todoText}
         onChange={onChaneTodoText}
         onClick={onClickAdd}
-        disabled={incompleteTodos.length >= 5}
+        disabled={incompleteTodosTooMany}
       />
-      {incompleteTodos.length >= 5 && (
+      {incompleteTodosTooMany && (
         <p style={{ color: "red" }}>お前の頭じゃマルチタスクは３つが限界〜</p>
       )}
 
